@@ -54,12 +54,14 @@ nav.scrolled{background:rgba(7,7,13,0.88);backdrop-filter:blur(24px);padding:12p
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,240,255,0.3)}
 .btn-o{border:1px solid rgba(0,240,255,0.3);color:#00f0ff;background:transparent}
 .btn-o:hover{background:rgba(0,240,255,0.1);border-color:#00f0ff;transform:translateY(-2px)}
-.hfc{position:absolute;z-index:2;border-radius:12px;border:1px solid rgba(0,240,255,0.1);background-size:cover;background-position:center;overflow:hidden;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,0.35);will-change:transform}
-.hfc:hover{border-color:#00f0ff;box-shadow:0 12px 40px rgba(0,240,255,0.15)}
-.hfc::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.2);transition:all 0.3s}
-.hfc:hover::after{background:rgba(0,0,0,0.05)}
-.hfc .hp{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;transition:all 0.3s}
-.hfc:hover .hp{transform:translate(-50%,-50%) scale(1.1);border-color:#00f0ff;box-shadow:0 0 20px rgba(0,240,255,0.3)}
+.hfc{position:absolute;z-index:2;border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,0.35);will-change:transform}
+.hfc .hfc-cover{position:absolute;inset:0;background-size:cover;background-position:center;z-index:2;cursor:pointer}
+.hfc .hfc-cover::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.2);transition:all 0.3s}
+.hfc .hfc-cover:hover::after{background:rgba(0,0,0,0.05)}
+.hfc .hp{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;transition:all 0.3s;pointer-events:none}
+.hfc .hfc-cover:hover .hp{transform:translate(-50%,-50%) scale(1.1);border-color:#00f0ff;box-shadow:0 0 20px rgba(0,240,255,0.3)}
+.hfc iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;z-index:1}
+.hfc .hfc-cover.hidden{opacity:0;pointer-events:none}
 .hfc-1{width:240px;height:148px;top:12%;left:-6%}
 .hfc-2{width:186px;height:116px;top:42%;left:-6%}
 .hfc-3{width:200px;height:126px;top:10%;right:-6%}
@@ -190,11 +192,11 @@ section{padding:60px 24px}.hfc{display:none}.hero-video-wrap{width:92%}.hero-con
 <div class="deco deco-3"></div>
 <div class="bottom-glow"></div>
 </div>
-<a class="hfc hfc-1" href="https://www.bilibili.com/video/BV1mvCMBrEsy" target="_blank" style="background-image:url(covers/cover01.jpg)" data-ax="6" data-ay="4"><span class="hp">▶</span></a>
-<a class="hfc hfc-2" href="https://www.bilibili.com/video/BV1gbCMBmEzF" target="_blank" style="background-image:url(covers/cover18.jpg)" data-ax="-5" data-ay="-4"><span class="hp">▶</span></a>
-<a class="hfc hfc-3" href="https://www.bilibili.com/video/BV1gbCMBmEqz" target="_blank" style="background-image:url(covers/cover11.jpg)" data-ax="-6" data-ay="3"><span class="hp">▶</span></a>
-<a class="hfc hfc-4" href="https://www.bilibili.com/video/BV16uCMBhEGQ" target="_blank" style="background-image:url(covers/cover07.jpg)" data-ax="-4" data-ay="-3"><span class="hp">▶</span></a>
-<a class="hfc hfc-5" href="https://www.bilibili.com/video/BV1hbCMBmEap" target="_blank" style="background-image:url(covers/cover12.jpg)" data-ax="5" data-ay="-5"><span class="hp">▶</span></a>
+<div class="hfc hfc-1" data-ax="6" data-ay="4"><div class="hfc-cover" onclick="playHF(this,'BV1mvCMBrEsy')" style="background-image:url(covers/cover01.jpg)"><span class="hp">▶</span></div><iframe data-src="https://player.bilibili.com/player.html?bvid=BV1mvCMBrEsy&autoplay=1" src="" allow="autoplay;fullscreen" loading="lazy"></iframe></div>
+<div class="hfc hfc-2" data-ax="-5" data-ay="-4"><div class="hfc-cover" onclick="playHF(this,'BV1gbCMBmEzF')" style="background-image:url(covers/cover18.jpg)"><span class="hp">▶</span></div><iframe data-src="https://player.bilibili.com/player.html?bvid=BV1gbCMBmEzF&autoplay=1" src="" allow="autoplay;fullscreen" loading="lazy"></iframe></div>
+<div class="hfc hfc-3" data-ax="-6" data-ay="3"><div class="hfc-cover" onclick="playHF(this,'BV1gbCMBmEqz')" style="background-image:url(covers/cover11.jpg)"><span class="hp">▶</span></div><iframe data-src="https://player.bilibili.com/player.html?bvid=BV1gbCMBmEqz&autoplay=1" src="" allow="autoplay;fullscreen" loading="lazy"></iframe></div>
+<div class="hfc hfc-4" data-ax="-4" data-ay="-3"><div class="hfc-cover" onclick="playHF(this,'BV16uCMBhEGQ')" style="background-image:url(covers/cover07.jpg)"><span class="hp">▶</span></div><iframe data-src="https://player.bilibili.com/player.html?bvid=BV16uCMBhEGQ&autoplay=1" src="" allow="autoplay;fullscreen" loading="lazy"></iframe></div>
+<div class="hfc hfc-5" data-ax="5" data-ay="-5"><div class="hfc-cover" onclick="playHF(this,'BV1hbCMBmEap')" style="background-image:url(covers/cover12.jpg)"><span class="hp">▶</span></div><iframe data-src="https://player.bilibili.com/player.html?bvid=BV1hbCMBmEap&autoplay=1" src="" allow="autoplay;fullscreen" loading="lazy"></iframe></div>
 <div class="hero-content">
 <div class="hero-tag">3D 视觉设计工作室</div>
 <h1 class="hero-title">用三维视觉<br>创造品牌<span class="gr">情绪价值</span></h1>
@@ -378,6 +380,14 @@ document.querySelectorAll('.fbtn-filter').forEach(btn=>{
 
 // Card reveal
 document.querySelectorAll('.case-card').forEach(c=>new IntersectionObserver(e=>e.forEach(en=>en.isIntersecting&&en.target.classList.add('visible')),{threshold:0.1}).observe(c));
+
+// Play hover card video inline
+function playHF(el,bvid){
+  el.classList.add("hidden");
+  var wrap=el.parentElement;
+  var ifr=wrap.querySelector("iframe");
+  if(ifr&&ifr.dataset.src&&!ifr.getAttribute("src"))ifr.src=ifr.dataset.src;
+}
 
 // Floating cards: gentle wandering
 (function(){const cards=document.querySelectorAll('.hfc');if(!cards.length)return;let t=0;
